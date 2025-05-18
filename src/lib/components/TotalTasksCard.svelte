@@ -2,6 +2,7 @@
   import * as Card from '$lib/components/ui/card'
   import { api } from '$lib/api'
   import { createQuery } from '@tanstack/svelte-query'
+  import { Skeleton } from '$lib/components/ui/skeleton'
 
   type TotalTasksResponse = {
     totalTasks: number
@@ -30,7 +31,7 @@
   <Card.Content>
     <div>
       {#if $query.isPending}
-        ...
+        <Skeleton class="w-full h-12" />
       {/if}
       {#if $query.error}
         An error has occurred:

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import TotalTasksCard from '$lib/components/TotalTasksCard.svelte'
-	import { createQuery } from '@tanstack/svelte-query'
+    import { createQuery } from '@tanstack/svelte-query'
     import { userQueryOptions } from '$lib/api'
 
     const userQuery = createQuery(userQueryOptions)
@@ -13,5 +12,5 @@
         <p>You need to login.</p>
     </div>
 {:else}
-	<TotalTasksCard />
+    <slot />
 {/if}

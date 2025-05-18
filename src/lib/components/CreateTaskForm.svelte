@@ -1,44 +1,76 @@
 <script lang="ts">
- import { Input } from "$lib/components/ui/input/index.js";
- import { Label } from "$lib/components/ui/label/index.js";
- import { Button } from "$lib/components/ui/button/index.js";
+  import { createForm } from '@tanstack/svelte-form'
+  import { Input } from '$lib/components/ui/input'
+  import { Button } from '$lib/components/ui/button'
+  import { writable } from 'svelte/store'
+  import { api } from '$lib/api'
+  import { goto } from '$app/navigation'
 
- import { createForm } from "@tanstack/svelte-form";
- import type { FieldApi } from "@tanstack/svelte-form";
- import FieldInfo from "$lib/components/FieldInfo.svelte";
-    
- const form = createForm(() => ({
+  const isSubmitting = writable(false)
+
+  const form = createForm(() => ({
     defaultValues: {
-        title: '',
-        desc: '',
+      title: '',
+      description: '',
     },
     onSubmit: async ({ value }) => {
-        alert(JSON.stringify(value))
+      isSubmitting.set(true)
+      const res = await api.tasks.$post({ json: value })
+      if (!res.ok) {
+        throw new Error('server error')
+      }
+      isSubmitting.set(false)
+      goto('/tasks')
     },
- }))
+  }))
 </script>
 
-<form class="max-w-xl m-auto"
-    id="form"
-    onsubmit={((e) => {
-        e.preventDefault()
-        e.stopPropagation()
-        form.handleSubmit()
-    })}
+<form
+  id="form"
+  onsubmit={(e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    form.handleSubmit()
+  }}
+  class="max-w-xl m-auto"
 >
-    <form.Field name="title" let:field>
-        <Label for={field.name}>Title</Label>
-        <Input type="text" id={field.name} />
-        <Input
-            name={field.name}
-            value={field.state.value}
-            onblur={field.handleBlur}
-            oninput={(e) => field.handleChange((e.target as HTMLInputElement).value ?? "")}
-        />
-        <FieldInfo field={field} />
-    </form.Field>
-
-    <Label for="desc">Description</Label>
-    <Input type="text" id="desc" placeholder="Title" />
-    <Button type="submit" class="mt-4">Create Task</Button>
+  <form.Field name="title">
+    {#snippet children(field)}
+      <div>
+        <label>
+          <div>Title</div>
+          <Input
+            value={form.state.values.title}
+            oninput={(e: Event) => {
+              const target = e.target as HTMLInputElement
+              field.handleChange(target.value)
+            }}
+          />
+        </label>
+      </div>
+    {/snippet}
+  </form.Field>
+  <form.Field name="description">
+    {#snippet children(field)}
+      <div>
+        <label>
+          <div>Description</div>
+          <Input
+            value={form.state.values.description}
+            oninput={(e: Event) => {
+              const target = e.target as HTMLInputElement
+              field.handleChange(target.value)
+            }}
+          />
+        </label>
+      </div>
+    {/snippet}
+  </form.Field>
+  <Button type="submit" class="mt-4" disabled={$isSubmitting}>
+    {#if $isSubmitting}
+      ...
+    {:else}
+      Submit
+    {/if}
+  </Button>
 </form>
