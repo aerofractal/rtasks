@@ -26,6 +26,7 @@ and
 ```
 This is required as you cannot make unauthenticated requests directly to the backend server on :3000, so you need to use the frontend to log in first.
 Requests to /api are also routed through to the backend server by the frontend, using Vite Proxy.
+The frontend app, per Vite standards, is accessed on :5173
 
 ## Routes
 ```ts
