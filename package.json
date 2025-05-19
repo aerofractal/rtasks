@@ -44,6 +44,6 @@
 		"@tanstack/query-persist-client-core": "^5.76.1",
 		"@tanstack/svelte-form": "^1.11.1",
 		"@tanstack/svelte-query": "^5.76.0",
-		"hono": "^4.7.10"
+		"drizzle-orm": "^0.43.1"
 	}
 }

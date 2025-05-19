@@ -27,9 +27,9 @@
  */
 declare module '$env/static/private' {
 	export const SHELL: string;
-	export const WINDOWID: string;
 	export const COLORTERM: string;
 	export const NVM_INC: string;
+	export const TERM_PROGRAM_VERSION: string;
 	export const rvm_prefix: string;
 	export const rvm_alias_expanded: string;
 	export const FPATH: string;
@@ -44,7 +44,7 @@ declare module '$env/static/private' {
 	export const npm_config_local_prefix: string;
 	export const rvm_ruby_bits: string;
 	export const SSH_AGENT_PID: string;
-	export const KITTY_PID: string;
+	export const NO_AT_BRIDGE: string;
 	export const EDITOR: string;
 	export const GTK_MODULES: string;
 	export const RUBY_VERSION: string;
@@ -61,7 +61,7 @@ declare module '$env/static/private' {
 	export const _: string;
 	export const XAUTHORITY: string;
 	export const SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS: string;
-	export const KITTY_PUBLIC_KEY: string;
+	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const rvm_bin_flag: string;
 	export const MOTD_SHOWN: string;
 	export const rvm_hook: string;
@@ -70,24 +70,26 @@ declare module '$env/static/private' {
 	export const npm_package_version: string;
 	export const MEMORY_PRESSURE_WATCH: string;
 	export const STARSHIP_SHELL: string;
-	export const KITTY_WINDOW_ID: string;
 	export const rvm_niceness: string;
+	export const GIT_ASKPASS: string;
 	export const INVOCATION_ID: string;
 	export const rvm_silent_flag: string;
 	export const rvm_proxy: string;
 	export const INIT_CWD: string;
+	export const CHROME_DESKTOP: string;
 	export const STARSHIP_SESSION_KEY: string;
 	export const NVM_DIR: string;
+	export const VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 	export const rvm_ruby_make_install: string;
 	export const rvm_bin_path: string;
 	export const GEM_PATH: string;
 	export const GEM_HOME: string;
 	export const rvm_only_path_flag: string;
 	export const XDG_SESSION_CLASS: string;
-	export const TERMINFO: string;
 	export const TERM: string;
 	export const npm_package_name: string;
 	export const USER: string;
+	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const MANPAGER: string;
 	export const DISPLAY: string;
 	export const SHLVL: string;
@@ -103,11 +105,14 @@ declare module '$env/static/private' {
 	export const DEBUGINFOD_URLS: string;
 	export const npm_package_json: string;
 	export const rvm_ruby_make: string;
+	export const VSCODE_GIT_ASKPASS_MAIN: string;
 	export const GTK3_MODULES: string;
 	export const XDG_DATA_DIRS: string;
+	export const GDK_BACKEND: string;
 	export const rvm_use_flag: string;
 	export const PATH: string;
 	export const PHP_INI_SCAN_DIR: string;
+	export const ORIGINAL_XDG_CURRENT_DESKTOP: string;
 	export const DBUS_SESSION_BUS_ADDRESS: string;
 	export const rvm_sdk: string;
 	export const rvm_script_name: string;
@@ -115,10 +120,10 @@ declare module '$env/static/private' {
 	export const MAIL: string;
 	export const rvm_gemstone_url: string;
 	export const IRBRC: string;
-	export const KITTY_INSTALLATION_DIR: string;
 	export const npm_node_execpath: string;
 	export const rvm_path: string;
 	export const OLDPWD: string;
+	export const TERM_PROGRAM: string;
 }
 
 /**
@@ -151,9 +156,9 @@ declare module '$env/static/public' {
 declare module '$env/dynamic/private' {
 	export const env: {
 		SHELL: string;
-		WINDOWID: string;
 		COLORTERM: string;
 		NVM_INC: string;
+		TERM_PROGRAM_VERSION: string;
 		rvm_prefix: string;
 		rvm_alias_expanded: string;
 		FPATH: string;
@@ -168,7 +173,7 @@ declare module '$env/dynamic/private' {
 		npm_config_local_prefix: string;
 		rvm_ruby_bits: string;
 		SSH_AGENT_PID: string;
-		KITTY_PID: string;
+		NO_AT_BRIDGE: string;
 		EDITOR: string;
 		GTK_MODULES: string;
 		RUBY_VERSION: string;
@@ -185,7 +190,7 @@ declare module '$env/dynamic/private' {
 		_: string;
 		XAUTHORITY: string;
 		SDL_VIDEO_MINIMIZE_ON_FOCUS_LOSS: string;
-		KITTY_PUBLIC_KEY: string;
+		VSCODE_GIT_ASKPASS_NODE: string;
 		rvm_bin_flag: string;
 		MOTD_SHOWN: string;
 		rvm_hook: string;
@@ -194,24 +199,26 @@ declare module '$env/dynamic/private' {
 		npm_package_version: string;
 		MEMORY_PRESSURE_WATCH: string;
 		STARSHIP_SHELL: string;
-		KITTY_WINDOW_ID: string;
 		rvm_niceness: string;
+		GIT_ASKPASS: string;
 		INVOCATION_ID: string;
 		rvm_silent_flag: string;
 		rvm_proxy: string;
 		INIT_CWD: string;
+		CHROME_DESKTOP: string;
 		STARSHIP_SESSION_KEY: string;
 		NVM_DIR: string;
+		VSCODE_GIT_ASKPASS_EXTRA_ARGS: string;
 		rvm_ruby_make_install: string;
 		rvm_bin_path: string;
 		GEM_PATH: string;
 		GEM_HOME: string;
 		rvm_only_path_flag: string;
 		XDG_SESSION_CLASS: string;
-		TERMINFO: string;
 		TERM: string;
 		npm_package_name: string;
 		USER: string;
+		VSCODE_GIT_IPC_HANDLE: string;
 		MANPAGER: string;
 		DISPLAY: string;
 		SHLVL: string;
@@ -227,11 +234,14 @@ declare module '$env/dynamic/private' {
 		DEBUGINFOD_URLS: string;
 		npm_package_json: string;
 		rvm_ruby_make: string;
+		VSCODE_GIT_ASKPASS_MAIN: string;
 		GTK3_MODULES: string;
 		XDG_DATA_DIRS: string;
+		GDK_BACKEND: string;
 		rvm_use_flag: string;
 		PATH: string;
 		PHP_INI_SCAN_DIR: string;
+		ORIGINAL_XDG_CURRENT_DESKTOP: string;
 		DBUS_SESSION_BUS_ADDRESS: string;
 		rvm_sdk: string;
 		rvm_script_name: string;
@@ -239,10 +249,10 @@ declare module '$env/dynamic/private' {
 		MAIL: string;
 		rvm_gemstone_url: string;
 		IRBRC: string;
-		KITTY_INSTALLATION_DIR: string;
 		npm_node_execpath: string;
 		rvm_path: string;
 		OLDPWD: string;
+		TERM_PROGRAM: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
