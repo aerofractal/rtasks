@@ -56,6 +56,7 @@ declare module '$env/static/private' {
 	export const rvm_nightly_flag: string;
 	export const rvm_version: string;
 	export const rvm_pretty_print_flag: string;
+	export const BUN_WHICH_IGNORE_CWD: string;
 	export const SYSTEMD_EXEC_PID: string;
 	export const _: string;
 	export const XAUTHORITY: string;
@@ -74,6 +75,7 @@ declare module '$env/static/private' {
 	export const INVOCATION_ID: string;
 	export const rvm_silent_flag: string;
 	export const rvm_proxy: string;
+	export const INIT_CWD: string;
 	export const STARSHIP_SESSION_KEY: string;
 	export const NVM_DIR: string;
 	export const rvm_ruby_make_install: string;
@@ -88,7 +90,6 @@ declare module '$env/static/private' {
 	export const USER: string;
 	export const MANPAGER: string;
 	export const DISPLAY: string;
-	export const npm_lifecycle_event: string;
 	export const SHLVL: string;
 	export const NVM_CD_FLAGS: string;
 	export const XDG_VTNR: string;
@@ -118,7 +119,6 @@ declare module '$env/static/private' {
 	export const npm_node_execpath: string;
 	export const rvm_path: string;
 	export const OLDPWD: string;
-	export const NODE_ENV: string;
 }
 
 /**
@@ -180,6 +180,7 @@ declare module '$env/dynamic/private' {
 		rvm_nightly_flag: string;
 		rvm_version: string;
 		rvm_pretty_print_flag: string;
+		BUN_WHICH_IGNORE_CWD: string;
 		SYSTEMD_EXEC_PID: string;
 		_: string;
 		XAUTHORITY: string;
@@ -198,6 +199,7 @@ declare module '$env/dynamic/private' {
 		INVOCATION_ID: string;
 		rvm_silent_flag: string;
 		rvm_proxy: string;
+		INIT_CWD: string;
 		STARSHIP_SESSION_KEY: string;
 		NVM_DIR: string;
 		rvm_ruby_make_install: string;
@@ -212,7 +214,6 @@ declare module '$env/dynamic/private' {
 		USER: string;
 		MANPAGER: string;
 		DISPLAY: string;
-		npm_lifecycle_event: string;
 		SHLVL: string;
 		NVM_CD_FLAGS: string;
 		XDG_VTNR: string;
@@ -242,7 +243,6 @@ declare module '$env/dynamic/private' {
 		npm_node_execpath: string;
 		rvm_path: string;
 		OLDPWD: string;
-		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
