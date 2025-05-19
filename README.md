@@ -1,38 +1,45 @@
-# sv
+<img src="https://github.com/user-attachments/assets/ba8118fb-8718-4abf-b112-8bf452328cf6" alt="favicon-light" width="100"/>
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+# rTasks
 
-## Creating a project
+This is a small tasks app with a SvelteKit frontend, and a Hono/TS backend.
 
-If you're seeing this, you've probably already done this step. Congrats!
-
+## Running for Development
+Install node_modules:
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+$ bun install
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
+Build:
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+$ bun run build
 ```
 
-## Building
-
-To create a production version of your app:
-
+Both the backend server, AND the frontend Vite server must be running at the same time.
 ```bash
-npm run build
+./frontend $ cd ..
+$ bun run dev
+
+and
+
+./frontend $ bun run dev
+```
+This is required as you cannot make unauthenticated requests directly to the backend server on :3000, so you need to use the frontend to log in first.
+Requests to /api are also routed through to the backend server by the frontend, using Vite Proxy.
+
+## Routes
+```ts
+goto('/') // Home page
+goto('/about') // About page
+goto('/tasks') // Tasks list
+goto('/create-task') // Create a new task
+goto('/profile') // User profile
+goto('/api/login') // Redirect to Kinde login
+goto('/api/logout') // Redirect to Kinde logout
 ```
 
-You can preview the production build with `npm run preview`.
+## Deployment
+This project is configured to deploy either to fly.io, or you can build a bare docker image with the Dockerfile provided.
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+### WARNING!!!
+Do not deploy this app from this frontend repository. Please refer back to the [`rtasks-api`](https://github.com/aerofractal/rtasks-api) repository, for full deployment instructions.
