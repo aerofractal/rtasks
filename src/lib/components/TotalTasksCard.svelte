@@ -19,7 +19,9 @@
 
   const query = createQuery<TotalTasksResponse>({
     queryKey: ['get-total-tasks'],
-    queryFn: fetchTotalTasks
+    queryFn: fetchTotalTasks,
+    staleTime: 0,
+    refetchOnWindowFocus: true
   })
 </script>
 

@@ -5,6 +5,7 @@
   import { writable } from 'svelte/store'
   import { api } from '$lib/api'
   import { goto } from '$app/navigation'
+  import { createTaskSchema } from '$server/shared-types'
 
   const isSubmitting = writable(false)
 
@@ -32,9 +33,14 @@
     e.stopPropagation()
     form.handleSubmit()
   }}
-  class="max-w-xl m-auto"
+  class="flex flex-col gap-y-4 max-w-xl m-auto"
 >
-  <form.Field name="title">
+  <form.Field 
+    name="title"
+    validators={{
+      onChange: createTaskSchema.shape.title
+    }}
+  >
     {#snippet children(field)}
       <div>
         <label>
@@ -47,10 +53,18 @@
             }}
           />
         </label>
+        {#if field.state.meta.errors.length}
+          <div class="text-sm mt-1">{field.state.meta.errors[0]?.message}</div>
+        {/if}
       </div>
     {/snippet}
   </form.Field>
-  <form.Field name="description">
+  <form.Field
+    name="description"
+    validators={{
+      onChange: createTaskSchema.shape.description
+    }}
+  >
     {#snippet children(field)}
       <div>
         <label>
@@ -63,6 +77,9 @@
             }}
           />
         </label>
+        {#if field.state.meta.errors.length}
+          <div class="text-sm mt-1">{field.state.meta.errors[0]?.message}</div>
+        {/if}
       </div>
     {/snippet}
   </form.Field>

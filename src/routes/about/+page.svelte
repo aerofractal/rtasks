@@ -1,1 +1,1 @@
-<div class="p-2">Hello from About!</div>
+<div class="p-2">Coming soon!</div>

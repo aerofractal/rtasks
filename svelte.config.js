@@ -7,13 +7,17 @@ const config = {
 		adapter: adapter({
 			pages: 'dist',
 			assets: 'dist',
-			fallback: 'fallback.html',
+			fallback: 'index.html',
+			// fallback: undefined,
 			precompress: false,
 			strict: true
 		}),
 		alias: {
 			"@/*": "./src/lib/*",
 			"$server/*": "../api/*"
+		},
+		output: {
+			bundleStrategy: 'single'
 		}
 	}
 };
