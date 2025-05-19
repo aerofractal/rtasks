@@ -14,7 +14,7 @@ export const ssr = false;
 
 <div class="p-2 flex justify-between items-baseline gap-2 max-w-2xl m-auto">
     <!-- Left side links -->
-    <a href="/" class="text-2xl font-bold">rTasks</a>
+    <a href="/" class="text-xl font-bold">rTasks</a>
     <div class="flex gap-2">
         <div class="flex gap-2 items-center">
         <a href="/about" class="[&.active]:font-bold">About</a>

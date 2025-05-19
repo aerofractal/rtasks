@@ -27,6 +27,7 @@
  */
 declare module '$env/static/private' {
 	export const SHELL: string;
+	export const USER_ZDOTDIR: string;
 	export const COLORTERM: string;
 	export const NVM_INC: string;
 	export const TERM_PROGRAM_VERSION: string;
@@ -56,7 +57,6 @@ declare module '$env/static/private' {
 	export const rvm_nightly_flag: string;
 	export const rvm_version: string;
 	export const rvm_pretty_print_flag: string;
-	export const BUN_WHICH_IGNORE_CWD: string;
 	export const SYSTEMD_EXEC_PID: string;
 	export const _: string;
 	export const XAUTHORITY: string;
@@ -64,6 +64,7 @@ declare module '$env/static/private' {
 	export const VSCODE_GIT_ASKPASS_NODE: string;
 	export const rvm_bin_flag: string;
 	export const MOTD_SHOWN: string;
+	export const VSCODE_INJECTION: string;
 	export const rvm_hook: string;
 	export const HOME: string;
 	export const LANG: string;
@@ -75,7 +76,6 @@ declare module '$env/static/private' {
 	export const INVOCATION_ID: string;
 	export const rvm_silent_flag: string;
 	export const rvm_proxy: string;
-	export const INIT_CWD: string;
 	export const CHROME_DESKTOP: string;
 	export const STARSHIP_SESSION_KEY: string;
 	export const NVM_DIR: string;
@@ -88,10 +88,12 @@ declare module '$env/static/private' {
 	export const XDG_SESSION_CLASS: string;
 	export const TERM: string;
 	export const npm_package_name: string;
+	export const ZDOTDIR: string;
 	export const USER: string;
 	export const VSCODE_GIT_IPC_HANDLE: string;
 	export const MANPAGER: string;
 	export const DISPLAY: string;
+	export const npm_lifecycle_event: string;
 	export const SHLVL: string;
 	export const NVM_CD_FLAGS: string;
 	export const XDG_VTNR: string;
@@ -124,6 +126,7 @@ declare module '$env/static/private' {
 	export const rvm_path: string;
 	export const OLDPWD: string;
 	export const TERM_PROGRAM: string;
+	export const NODE_ENV: string;
 }
 
 /**
@@ -156,6 +159,7 @@ declare module '$env/static/public' {
 declare module '$env/dynamic/private' {
 	export const env: {
 		SHELL: string;
+		USER_ZDOTDIR: string;
 		COLORTERM: string;
 		NVM_INC: string;
 		TERM_PROGRAM_VERSION: string;
@@ -185,7 +189,6 @@ declare module '$env/dynamic/private' {
 		rvm_nightly_flag: string;
 		rvm_version: string;
 		rvm_pretty_print_flag: string;
-		BUN_WHICH_IGNORE_CWD: string;
 		SYSTEMD_EXEC_PID: string;
 		_: string;
 		XAUTHORITY: string;
@@ -193,6 +196,7 @@ declare module '$env/dynamic/private' {
 		VSCODE_GIT_ASKPASS_NODE: string;
 		rvm_bin_flag: string;
 		MOTD_SHOWN: string;
+		VSCODE_INJECTION: string;
 		rvm_hook: string;
 		HOME: string;
 		LANG: string;
@@ -204,7 +208,6 @@ declare module '$env/dynamic/private' {
 		INVOCATION_ID: string;
 		rvm_silent_flag: string;
 		rvm_proxy: string;
-		INIT_CWD: string;
 		CHROME_DESKTOP: string;
 		STARSHIP_SESSION_KEY: string;
 		NVM_DIR: string;
@@ -217,10 +220,12 @@ declare module '$env/dynamic/private' {
 		XDG_SESSION_CLASS: string;
 		TERM: string;
 		npm_package_name: string;
+		ZDOTDIR: string;
 		USER: string;
 		VSCODE_GIT_IPC_HANDLE: string;
 		MANPAGER: string;
 		DISPLAY: string;
+		npm_lifecycle_event: string;
 		SHLVL: string;
 		NVM_CD_FLAGS: string;
 		XDG_VTNR: string;
@@ -253,6 +258,7 @@ declare module '$env/dynamic/private' {
 		rvm_path: string;
 		OLDPWD: string;
 		TERM_PROGRAM: string;
+		NODE_ENV: string;
 		[key: `PUBLIC_${string}`]: undefined;
 		[key: `${string}`]: string | undefined;
 	}
