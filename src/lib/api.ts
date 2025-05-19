@@ -32,3 +32,18 @@ export const userQueryOptions = {
     staleTime: Infinity,
     retry: false
 };
+
+export const tasksQueryOptions = {
+    queryKey: ['get-all-tasks'],
+    queryFn: fetchTasks,
+    staleTime: 1000 * 60 * 5
+}
+
+export async function fetchTasks() {
+    const res = await api.tasks.$get()
+    if (!res.ok) {
+        throw new Error('Network response was not ok')
+    }
+    const data = await res.json()
+    return data
+}

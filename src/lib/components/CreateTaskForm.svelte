@@ -3,11 +3,14 @@
   import { Input } from '$lib/components/ui/input'
   import { Button } from '$lib/components/ui/button'
   import { writable } from 'svelte/store'
-  import { api } from '$lib/api'
+  import { api, tasksQueryOptions } from '$lib/api'
   import { goto } from '$app/navigation'
   import { createTaskSchema } from '$server/shared-types'
+  import { useQueryClient } from '@tanstack/svelte-query'
 
   const isSubmitting = writable(false)
+
+  const queryClient = useQueryClient()
 
   const form = createForm(() => ({
     defaultValues: {
@@ -15,12 +18,19 @@
       description: '',
     },
     onSubmit: async ({ value }) => {
+      const existingTasks = await queryClient.ensureQueryData(tasksQueryOptions)
       isSubmitting.set(true)
       const res = await api.tasks.$post({ json: value })
       if (!res.ok) {
         throw new Error('server error')
       }
       isSubmitting.set(false)
+
+      const newTask = await res.json()
+      queryClient.setQueryData(tasksQueryOptions.queryKey, {
+        ...existingTasks,
+        tasks: [newTask, ...existingTasks.tasks]
+      })
       goto('/tasks')
     },
   }))

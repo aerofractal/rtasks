@@ -1,33 +1,10 @@
 <script lang="ts">
-  import { api } from '$lib/api'
   import { createQuery } from '@tanstack/svelte-query'
   import * as Table from '$lib/components/ui/table'
   import { Skeleton } from '$lib/components/ui/skeleton'
+  import { tasksQueryOptions } from '$lib/api'
 
-  type Task = {
-    id: number,
-    title: string,
-    description: string,
-    complete: boolean
-  }
-
-  type TasksResponse = {
-    tasks: Task[]
-  }
-
-  async function fetchTasks(): Promise<TasksResponse> {
-    const res = await api.tasks.$get()
-    if (!res.ok) {
-      throw new Error('Network response was not ok')
-    }
-    const data = await res.json()
-    return data
-  }
-
-  const query = createQuery<TasksResponse>({
-    queryKey: ['get-all-tasks'],
-    queryFn: fetchTasks
-  })
+  const query = createQuery(tasksQueryOptions)
 </script>
 
 <Table.Root class="p-2 max-w-3xl m-auto">
@@ -69,7 +46,7 @@
         <Table.Cell class="font-medium">{task.id}</Table.Cell>
         <Table.Cell>{task.title}</Table.Cell>
         <Table.Cell>{task.description}</Table.Cell>
-        <Table.Cell class="text-right">{task.complete ? 'Yes' : 'No'}</Table.Cell>
+        <Table.Cell class="text-right">{task.completed ? 'Yes' : 'No'}</Table.Cell>
       </Table.Row>
     {/each}
   {/if}
