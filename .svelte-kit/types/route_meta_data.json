@@ -1,0 +1,21 @@
+{
+	"/": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/about": [
+		"src/routes/+layout.ts"
+	],
+	"/create-task": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/profile": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	],
+	"/tasks": [
+		"src/routes/+layout.ts",
+		"src/routes/+layout.ts"
+	]
+}
